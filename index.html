@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Campaign Strike drafts campaign finance filings for local Texas legislative campaigns, ready for treasurer review and approval.">
+  <title>Campaign Strike — Campaign finance filing, drafted for you</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root { --page:#F2F4F7; --surface:#FFFFFF; --ink:#101828; --text:#344054; --muted:#475467; --border:#D0D5DD; --field:#667085; --blue:#1D4ED8; --blue-hover:#1B3AA6; --blue-tint:#E0E9FF; --error:#B42318; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--page); color:var(--text); font-family:"Libre Franklin",system-ui,sans-serif; font-size:18px; line-height:1.6; }
+    a { color:inherit; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline:3px solid var(--blue); outline-offset:3px; }
+    .container { max-width:1120px; margin:0 auto; padding:0 32px; }
+    .site-header { padding:22px 0; }
+    .header-row, .hero, .pricing-row, .waitlist-grid, .footer-row { display:flex; justify-content:space-between; align-items:center; gap:32px; }
+    .wordmark { font-size:22px; font-weight:800; letter-spacing:-.03em; text-decoration:none; color:var(--ink); }
+    .button { min-height:52px; display:inline-flex; align-items:center; justify-content:center; padding:10px 18px; border:2px solid var(--blue); border-radius:6px; background:var(--blue); color:#fff; font:700 16px/1.2 inherit; text-decoration:none; cursor:pointer; }
+    .button:hover { background:var(--blue-hover); border-color:var(--blue-hover); }
+    .button--outline { min-height:44px; color:var(--blue); background:transparent; }
+    .button--outline:hover { color:#fff; background:var(--blue); border-color:var(--blue); }
+    .button--white { background:#fff; border-color:#fff; color:var(--ink); }
+    .button--white:hover { color:#fff; background:transparent; border-color:#fff; }
+    h1,h2,h3,p { margin-top:0; }
+    h1,h2,h3 { color:var(--ink); line-height:1.16; letter-spacing:-.035em; }
+    h1 { margin-bottom:20px; font-size:clamp(38px,6vw,58px); font-weight:800; }
+    h2 { margin-bottom:14px; font-size:clamp(28px,4vw,38px); font-weight:800; }
+    h3 { margin-bottom:8px; font-size:20px; font-weight:800; }
+    .hero { align-items:center; padding:72px 0 84px; }
+    .hero-copy { flex:1 1 480px; max-width:600px; }
+    .subhead { margin-bottom:26px; font-size:20px; }
+    .price-note, .muted, .hint { color:var(--muted); }
+    .price-note { margin:14px 0 0; font-size:15px; }
+    .report-card, .form-card, .roadmap-box { background:var(--surface); border:2px solid var(--ink); border-radius:8px; }
+    .report-card { flex:1 1 390px; max-width:480px; padding:24px; color:var(--ink); }
+    .report-card__head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; padding-bottom:18px; border-bottom:1px solid var(--border); }
+    .pill { display:inline-block; padding:4px 9px; border-radius:999px; background:var(--blue-tint); color:var(--ink); font-size:12px; font-weight:700; line-height:1.35; text-align:center; }
+    .report-row { display:grid; grid-template-columns:1fr auto; gap:10px; padding:15px 0; border-bottom:1px solid var(--border); }
+    .report-row__name { font-weight:700; }
+    .report-row__detail { color:var(--muted); font-size:14px; }
+    .amount { font-weight:700; white-space:nowrap; }
+    .total-row { border-bottom:0; }
+    .report-footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; padding-top:18px; font-size:14px; }
+    .fake-button { display:inline-flex; align-items:center; min-height:40px; padding:7px 12px; border-radius:6px; background:var(--ink); color:#fff; font-size:14px; font-weight:700; }
+    .band { background:var(--surface); }
+    .how { padding:76px 0; }
+    .section-title { margin-bottom:34px; }
+    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+    .step-number { display:block; margin-bottom:10px; color:var(--blue); font-size:52px; font-weight:800; line-height:1; letter-spacing:-.05em; }
+    .roadmap { padding:82px 0; }
+    .roadmap-intro { max-width:800px; margin-bottom:28px; font-size:20px; }
+    .roadmap-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .roadmap-box { padding:23px; }
+    .roadmap-box--next { border-color:var(--field); border-style:dashed; background:transparent; }
+    .roadmap-box h3 { font-size:21px; }
+    .list-row { padding:15px 0; border-top:1px solid var(--border); }
+    .after-note { margin:17px 0 0; font-size:15px; }
+    .pricing { background:var(--ink); color:#fff; }
+    .pricing-row { min-height:180px; }
+    .pricing h2 { margin:0 0 5px; color:#fff; }
+    .pricing p { margin:0; }
+    .waitlist { padding:82px 0; }
+    .waitlist-grid { align-items:flex-start; }
+    .waitlist-copy { flex:1 1 330px; max-width:440px; }
+    .form-card { flex:1 1 530px; padding:28px; }
+    form { margin:0; }
+    .field { margin:0 0 20px; }
+    label, legend { display:block; margin-bottom:7px; color:var(--ink); font-size:16px; font-weight:700; }
+    input[type="text"], input[type="email"], textarea { width:100%; min-height:52px; padding:11px 12px; border:2px solid var(--field); border-radius:6px; color:var(--ink); background:#fff; font:400 16px/1.45 inherit; }
+    textarea { min-height:104px; resize:vertical; }
+    .hint { display:block; margin-top:5px; font-size:14px; line-height:1.45; }
+    fieldset { margin:0 0 20px; padding:0; border:0; }
+    .choice { display:flex; align-items:center; min-height:44px; gap:10px; margin:2px 0; font-size:16px; font-weight:400; cursor:pointer; }
+    .choice input { width:22px; height:22px; flex:0 0 22px; accent-color:var(--blue); }
+    .divider { height:1px; margin:26px 0; background:var(--border); }
+    .prioritize { margin:0 0 20px; color:var(--ink); font-size:18px; font-weight:800; }
+    .error { display:none; margin:0 0 18px; color:var(--error); font-size:15px; font-weight:600; }
+    .error.is-visible { display:block; }
+    .honeypot { position:absolute!important; left:-10000px!important; width:1px!important; height:1px!important; overflow:hidden!important; }
+    .success { display:none; }
+    .success.is-visible { display:block; }
+    .success h3 { font-size:28px; }
+    .questions { padding:76px 0; }
+    .question-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+    .question-grid p { margin:0; }
+    .site-footer { padding:28px 0; }
+    .footer-row { gap:18px; color:var(--muted); font-size:15px; }
+    .footer-row strong { color:var(--ink); }
+    @media (max-width:720px) { .container { padding:0 20px; } .site-header { padding:16px 0; } .header-row { gap:16px; } .hero { padding:48px 0 58px; } .hero,.pricing-row,.waitlist-grid { align-items:flex-start; flex-wrap:wrap; } .hero-copy,.report-card,.waitlist-copy,.form-card { max-width:none; flex-basis:100%; } .report-card { padding:20px; } .steps,.roadmap-grid,.question-grid { grid-template-columns:1fr; gap:26px; } .how,.roadmap,.waitlist,.questions { padding:58px 0; } .pricing-row { padding:42px 0; min-height:0; } .footer-row { align-items:flex-start; flex-wrap:wrap; } }
+    @media (max-width:420px) { .wordmark { font-size:20px; } .button--outline { padding:8px 12px; font-size:14px; } .report-card__head { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="wordmark" href="#top">Campaign Strike</a>
+      <a class="button button--outline" href="#waitlist">Join the waitlist</a>
+    </div>
+  </header>
+  <main id="top">
+    <section class="container hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">Campaign finance filing, drafted for you.</h1>
+        <p class="subhead">Enter your receipts and answer a few plain-language questions. We draft your report, and you review and approve it before anything is filed.</p>
+        <a class="button" href="#waitlist">Join the pilot waitlist</a>
+        <p class="price-note">$15/month per campaign, for your whole filing</p>
+      </div>
+      <aside class="report-card" aria-label="Example drafted spending report">
+        <div class="report-card__head"><strong>Spending report: draft</strong><span class="pill">3 items waiting for approval</span></div>
+        <div class="report-row"><div><div class="report-row__name">Yard signs</div><div class="report-row__detail">Printing · from receipt</div></div><div class="amount">$1,240.00</div></div>
+        <div class="report-row"><div><div class="report-row__name">Mailer postage</div><div class="report-row__detail">Postage · from receipt</div></div><div class="amount">$860.50</div></div>
+        <div class="report-row"><div><div class="report-row__name">Event rental</div><div class="report-row__detail">Venue · from your answers</div></div><div class="amount">$450.00</div></div>
+        <div class="report-row total-row"><div class="report-row__name">Total to report</div><div class="amount">$2,550.50</div></div>
+        <div class="report-footer"><span class="muted">Example layout. Approver: your treasurer.</span><span class="fake-button">Approve and file</span></div>
+      </aside>
+    </section>
+    <section class="band"><div class="container how" aria-labelledby="how-title">
+      <h2 class="section-title" id="how-title">How it works</h2>
+      <div class="steps">
+        <article><span class="step-number">1</span><h3>Enter your info</h3><p>Add receipts and answer a few questions about your campaign’s activity.</p></article>
+        <article><span class="step-number">2</span><h3>We draft the report</h3><p>Our AI turns your inputs into a completed filing.</p></article>
+        <article><span class="step-number">3</span><h3>You approve</h3><p>Your treasurer or designated approver reviews and signs off. Nothing goes out without a human approving it.</p></article>
+      </div>
+    </div></section>
+    <section class="container roadmap" aria-labelledby="roadmap-title">
+      <h2 id="roadmap-title">What we do today, and where we’re headed.</h2>
+      <p class="roadmap-intro">Filing is the first step toward a financial platform built for campaigns, like Ramp for businesses.</p>
+      <div class="roadmap-grid">
+        <article class="roadmap-box"><h3>Working in the pilot</h3><div class="list-row">Draft spending reports for local Texas legislative campaigns</div><div class="list-row">Send every draft to an approver for sign-off</div><div class="list-row">$15/month per campaign, for your whole filing</div></article>
+        <article class="roadmap-box roadmap-box--next"><h3>Coming next, in this order</h3><div class="list-row"><strong>Expense tracing.</strong> Spending tied back to your filings automatically.</div><div class="list-row"><strong>Campaign cards.</strong> One card for campaign spending.</div><div class="list-row"><strong>Banking.</strong> Accounts through partner banks, with interest on balances.</div></article>
+      </div>
+      <p class="after-note muted">Less paperwork, more time with voters.</p>
+    </section>
+    <section class="pricing"><div class="container pricing-row"><div><h2>$15/month per campaign.</h2><p>Covers your filing during the pilot.</p></div><a class="button button--white" href="#waitlist">Join the pilot waitlist</a></div></section>
+    <section class="container waitlist" id="waitlist" aria-labelledby="waitlist-title">
+      <div class="waitlist-grid"><div class="waitlist-copy"><h2 id="waitlist-title">Join the pilot.</h2><p>We’re onboarding 20-30 campaigns first. It takes about a minute, and only your name and email are required.</p></div>
+      <div class="form-card">
+        <form id="waitlist-form" novalidate>
+          <input type="hidden" name="_subject" value="New Campaign Strike waitlist signup"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required autocomplete="name"></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="campaign">Campaign and office</label><input id="campaign" name="campaign_and_office" type="text" aria-describedby="campaign-hint"><span class="hint" id="campaign-hint">For example: Smith for State House, District 49</span></div>
+          <div class="field"><label for="forms">Which forms or reports do you file?</label><textarea id="forms" name="forms_filed" aria-describedby="forms-hint"></textarea><span class="hint" id="forms-hint">Name them if you can, or tell us what you send to the state or county.</span></div>
+          <div class="divider"></div><p class="prioritize">Help us prioritize <span class="hint">Optional. Your answers help us decide which campaigns to onboard first.</span></p>
+          <div class="field"><label for="due">When is your next filing due?</label><input id="due" name="next_filing_due" type="text"></div>
+          <fieldset><legend>Who files your reports today?</legend><label class="choice"><input type="radio" name="who_files" value="Me or a volunteer">Me or a volunteer</label><label class="choice"><input type="radio" name="who_files" value="A consultant or accountant">A consultant or accountant</label><label class="choice"><input type="radio" name="who_files" value="The state or county software">The state or county software</label><label class="choice"><input type="radio" name="who_files" value="I haven't filed yet">I haven’t filed yet</label></fieldset>
+          <fieldset><legend>How long does one filing take you?</legend><label class="choice"><input type="radio" name="filing_time" value="Under 2 hours">Under 2 hours</label><label class="choice"><input type="radio" name="filing_time" value="2 to 5 hours">2 to 5 hours</label><label class="choice"><input type="radio" name="filing_time" value="More than 5 hours">More than 5 hours</label><label class="choice"><input type="radio" name="filing_time" value="I pay someone to do it">I pay someone to do it</label></fieldset>
+          <div class="field"><label for="trust">What would you need to see before trusting a drafted report?</label><input id="trust" name="trust_requirements" type="text"></div>
+          <fieldset><legend>Would you use any of these if they made filing faster?</legend><span class="hint">Connecting your spending to your filing means less manual entry. Tell us what you’re open to.</span><label class="choice"><input type="checkbox" name="interest" value="Banking for your campaign">Banking for your campaign</label><label class="choice"><input type="checkbox" name="interest" value="Campaign card and expense management">Campaign card and expense management</label><label class="choice"><input type="checkbox" name="interest" value="Both">Both</label><label class="choice"><input type="checkbox" name="interest" value="Not right now">Not right now</label></fieldset>
+          <label class="choice field"><input type="checkbox" name="would_try_on_next_filing" value="Yes">I’d use Campaign Strike on my next filing at $15/month and send my real receipts.</label>
+          <div class="honeypot" aria-hidden="true"><label for="honey">Leave this blank</label><input id="honey" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+          <p class="error" id="form-message" role="alert"></p><button class="button" id="submit-button" type="submit">Join the waitlist</button>
+        </form>
+        <div class="success" id="success-message" role="status"><h3>You’re on the list.</h3><p>We’ll email you when the pilot opens.</p></div>
+      </div></div>
+    </section>
+    <section class="band"><div class="container questions" aria-labelledby="questions-title"><h2 class="section-title" id="questions-title">Questions</h2><div class="question-grid"><article><h3>Does the AI file my report for me?</h3><p>No. It drafts, and you approve. Your approver reviews everything before it’s submitted.</p></article><article><h3>Which campaigns can use this?</h3><p>We’re starting with local Texas legislative campaigns. Tell us what you file in the form and we’ll prioritize the most requested reports.</p></article></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-row"><strong>Campaign Strike</strong><span>Filing for local Texas legislative campaigns</span></div></footer>
+  <script>
+    (() => {
+      const form = document.getElementById('waitlist-form'); const message = document.getElementById('form-message'); const button = document.getElementById('submit-button'); const success = document.getElementById('success-message');
+      const validationMessage = 'Add your name and a valid email so we can reach you when the pilot opens.';
+      const failureMessage = 'Your answers didn\'t send. Check your connection and try again.';
+      function showError(text) { message.textContent = text; message.classList.add('is-visible'); }
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault(); message.classList.remove('is-visible');
+        const name = form.elements.name.value.trim(); const email = form.elements.email.value.trim();
+        if (!name || !email || !form.elements.email.validity.valid) { showError(validationMessage); return; }
+        button.disabled = true; button.textContent = 'Sending...';
+        try {
+          const response = await fetch('https://formsubmit.co/ajax/carsonshef11@gmail.com', { method:'POST', headers:{Accept:'application/json'}, body:new FormData(form) });
+          let payload = null; try { payload = await response.json(); } catch (_) {}
+          if (!response.ok || !payload || !(payload.success === true || payload.success === 'true')) throw new Error('Form endpoint did not report success');
+          form.hidden = true; success.classList.add('is-visible');
+        } catch (_) { showError(failureMessage); button.disabled = false; button.textContent = 'Join the waitlist'; }
+      });
+    })();
+  </script>
+</body>
+</html>
