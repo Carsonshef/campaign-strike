@@ -79,6 +79,9 @@
     .choice input { width:22px; height:22px; flex:0 0 22px; accent-color:var(--blue); }
     .divider { height:1px; margin:26px 0; background:var(--border); }
     .prioritize { margin:0 0 20px; color:var(--ink); font-size:18px; font-weight:800; }
+    .demo-opt-in { margin:30px 0 24px; padding:20px; border:2px solid var(--ink); border-radius:8px; }
+    .demo-opt-in legend { margin:0 0 8px; font-size:20px; font-weight:800; }
+    .demo-opt-in .choice { margin:5px 0; }
     .error { display:none; margin:0 0 18px; color:var(--error); font-size:15px; font-weight:600; }
     .error.is-visible { display:block; }
     .honeypot { position:absolute!important; left:-10000px!important; width:1px!important; height:1px!important; overflow:hidden!important; }
@@ -91,7 +94,7 @@
     .site-footer { padding:28px 0; }
     .footer-row { gap:18px; color:var(--muted); font-size:15px; }
     .footer-row strong { color:var(--ink); }
-    @media (max-width:720px) { .container { padding:0 20px; } .site-header { padding:16px 0; } .header-row { gap:16px; } .hero { padding:48px 0 58px; } .hero,.pricing-row,.waitlist-grid { align-items:flex-start; flex-wrap:wrap; } .hero-copy,.report-card,.waitlist-copy,.form-card { max-width:none; flex-basis:100%; } .report-card { padding:20px; } .steps,.roadmap-grid,.question-grid { grid-template-columns:1fr; gap:26px; } .how,.roadmap,.waitlist,.questions { padding:58px 0; } .pricing-row { padding:42px 0; min-height:0; } .footer-row { align-items:flex-start; flex-wrap:wrap; } }
+    @media (max-width:720px) { .container { padding:0 20px; } .site-header { padding:16px 0; } .header-row { gap:16px; } .hero { padding:48px 0 58px; } .hero,.pricing-row,.waitlist-grid { align-items:flex-start; flex-wrap:wrap; } .hero-copy,.report-card,.waitlist-copy,.form-card { max-width:none; flex-basis:100%; } .report-card,.form-card { padding:20px; } .steps,.roadmap-grid,.question-grid { grid-template-columns:1fr; gap:26px; } .how,.roadmap,.waitlist,.questions { padding:58px 0; } .pricing-row { padding:42px 0; min-height:0; } .demo-opt-in { margin:28px 0 22px; padding:16px; } .footer-row { align-items:flex-start; flex-wrap:wrap; } }
     @media (max-width:420px) { .wordmark { font-size:20px; } .button--outline { padding:8px 12px; font-size:14px; } .report-card__head { flex-direction:column; } }
   </style>
 </head>
@@ -152,8 +155,7 @@
           <fieldset><legend>How long does one filing take you?</legend><label class="choice"><input type="radio" name="filing_time" value="Under 2 hours">Under 2 hours</label><label class="choice"><input type="radio" name="filing_time" value="2 to 5 hours">2 to 5 hours</label><label class="choice"><input type="radio" name="filing_time" value="More than 5 hours">More than 5 hours</label><label class="choice"><input type="radio" name="filing_time" value="I pay someone to do it">I pay someone to do it</label></fieldset>
           <div class="field"><label for="trust">What would you need to see before trusting a drafted report?</label><input id="trust" name="trust_requirements" type="text"></div>
           <fieldset><legend>Would you use any of these if they made filing faster?</legend><span class="hint">Connecting your spending to your filing means less manual entry. Tell us what you’re open to.</span><label class="choice"><input type="checkbox" name="interest" value="Banking for your campaign, with deposit sweeps for interest">Banking for your campaign, with deposit sweeps for interest</label><label class="choice"><input type="checkbox" name="interest" value="Campaign card and expense management">Campaign card and expense management</label></fieldset>
-          <label class="choice field"><input type="checkbox" name="interested_in_pilot" value="Yes">I’d be interested in participating in the Campaign Strike pilot.</label>
-          <label class="choice field"><input type="checkbox" name="would_try_on_next_filing" value="Yes">I’d use Campaign Strike on my next filing at $15/month and send my real receipts.</label>
+          <fieldset class="demo-opt-in"><legend>Opt into demo</legend><label class="choice"><input type="checkbox" name="interested_in_pilot" value="Yes">I’d be interested in participating in the Campaign Strike pilot.</label><label class="choice"><input type="checkbox" name="would_try_on_next_filing" value="Yes">I’d use Campaign Strike on my next filing at $15/month and send my real receipts.</label></fieldset>
           <div class="honeypot" aria-hidden="true"><label for="honey">Leave this blank</label><input id="honey" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
           <p class="error" id="form-message" role="alert"></p><button class="button" id="submit-button" type="submit">Join the waitlist</button>
         </form>
