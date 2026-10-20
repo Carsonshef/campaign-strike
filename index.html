@@ -69,16 +69,12 @@
     .waitlist-copy { flex:1 1 330px; max-width:440px; }
     .form-card { flex:1 1 530px; padding:28px; }
     form { margin:0; }
-    .field { margin:0 0 16px; }
-    .form-card div.field { display:grid; grid-template-columns:minmax(168px,.85fr) minmax(0,1.15fr); column-gap:16px; row-gap:5px; align-items:start; }
-    .form-card div.field label { grid-column:1; grid-row:1; }
-    .form-card div.field input, .form-card div.field textarea { grid-column:2; grid-row:1; }
-    .form-card div.field .hint { grid-column:2; grid-row:2; margin-top:0; }
+    .field { margin:0 0 20px; }
     label, legend { display:block; margin-bottom:7px; color:var(--ink); font-size:16px; font-weight:700; }
     input[type="text"], input[type="email"], textarea { width:100%; min-height:56px; padding:11px 12px; border:2px solid var(--field); border-radius:6px; color:var(--ink); background:#fff; font:400 20px/1.45 inherit; }
-    textarea { min-height:96px; resize:vertical; }
+    textarea { min-height:104px; resize:vertical; }
     .hint { display:block; margin-top:5px; font-size:14px; line-height:1.45; }
-    fieldset { margin:0 0 16px; padding:0; border:0; }
+    fieldset { margin:0 0 20px; padding:0; border:0; }
     .choice { display:flex; align-items:center; min-height:44px; gap:10px; margin:2px 0; font-size:16px; font-weight:400; cursor:pointer; }
     .choice input { width:22px; height:22px; flex:0 0 22px; accent-color:var(--blue); }
     .divider { height:1px; margin:26px 0; background:var(--border); }
@@ -99,7 +95,7 @@
     .site-footer { padding:28px 0; }
     .footer-row { gap:18px; color:var(--muted); font-size:15px; }
     .footer-row strong { color:var(--ink); }
-    @media (max-width:720px) { .container { padding:0 20px; } .site-header { padding:16px 0; } .header-row { gap:16px; } .hero { padding:48px 0 58px; } .hero,.pricing-row,.waitlist-grid { align-items:flex-start; flex-wrap:wrap; } .hero-copy,.report-card,.waitlist-copy,.form-card { max-width:none; flex-basis:100%; } .report-card,.form-card { padding:16px; } .form-card div.field { grid-template-columns:1fr; row-gap:5px; margin-bottom:18px; } .form-card div.field label,.form-card div.field input,.form-card div.field textarea,.form-card div.field .hint { grid-column:1; grid-row:auto; } .steps,.roadmap-grid,.question-grid { grid-template-columns:1fr; gap:26px; } .how,.roadmap,.waitlist,.questions { padding:58px 0; } .pricing-row { padding:42px 0; min-height:0; } .demo-opt-in { margin:24px 0 20px; padding:14px; } .footer-row { align-items:flex-start; flex-wrap:wrap; } }
+    @media (max-width:720px) { .container { padding:0 20px; } .site-header { padding:16px 0; } .header-row { gap:16px; } .hero { padding:48px 0 58px; } .hero,.pricing-row,.waitlist-grid { align-items:flex-start; flex-wrap:wrap; } .hero-copy,.report-card,.waitlist-copy,.form-card { max-width:none; flex-basis:100%; } .report-card,.form-card { padding:20px; } .steps,.roadmap-grid,.question-grid { grid-template-columns:1fr; gap:26px; } .how,.roadmap,.waitlist,.questions { padding:58px 0; } .pricing-row { padding:42px 0; min-height:0; } .demo-opt-in { margin:28px 0 22px; padding:16px; } .footer-row { align-items:flex-start; flex-wrap:wrap; } }
     @media (max-width:420px) { .wordmark { font-size:20px; } .button--outline { padding:8px 12px; font-size:14px; } .report-card__head { flex-direction:column; } }
   </style>
 </head>
